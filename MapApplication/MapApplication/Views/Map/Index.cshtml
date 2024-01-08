@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Scripts/OL8.2/Ol.css" rel="stylesheet" />
+<link href="~/Scripts/AppJs/Map/Map.css" rel="stylesheet" />
+<script src="https://unpkg.com/shapefile@0.6"></script>
+<div class="mb-2">
+    <input id="externalSHPfile" multiple class="form-control d-inline widthFileCls" type="file" />
+    <input class="form-control d-none" placeholder="Enter FilePath" id="txt_shp_file_name">
+    <button class="btn btn-primary d-inline" id="btnLoad">Load</button>
+</div>
+<div class="mt-2 text-black">
+    Note: To import a shapefile you must select the .shp , .shx, .dbf, and .prj files with the same name.
+</div>
+<div id="divMap">
+    
+</div>
+@section scripts {
+
+    <script src="~/Scripts/AppJs/Map/Proj4.js"></script>
+    <script src="~/Scripts/AppJs/Map/jszip.js"></script>
+    <script src="~/Scripts/AppJs/Map/jszip-utils.js"></script>
+    <script src="~/Scripts/AppJs/Map/preprocess.js"></script>
+    <script src="~/Scripts/AppJs/Map/preview.js"></script>
+    <script src="~/Scripts/OL8.2/Ol.js"></script>
+    <script src="~/Scripts/AppJs/Map/Map.js"></script>
+}
