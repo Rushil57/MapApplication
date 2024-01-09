@@ -53,9 +53,11 @@ function RemoveLoader() {
 
     if (progressInterval != null) {
         while (Number(progress) < timeoutSec) {
-            document.getElementById("progressTillUpdate").value = Number(progress) > 100 ? 100 : Number(progress);
-            progressTillUpdateValueEle.text(Number(progress) > 100 ? 100 : Number(progress) + " %")
-            progress = Number(progress) > 100 ? 100 : Number(progress) + 5;
+
+            var tempProgressNo = Number(progress) > 100 ? 100 : Number(progress);
+            document.getElementById("progressTillUpdate").value = tempProgressNo;
+            progressTillUpdateValueEle.text(tempProgressNo + " %")
+            progress = tempProgressNo + 5;
         }
         document.getElementById("progressTillUpdate").value = timeoutSec;
         setTimeout(function () { clearInterval(progressInterval); SetProgressToZero() }, 1000)

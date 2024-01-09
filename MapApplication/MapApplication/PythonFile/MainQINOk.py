@@ -2,7 +2,7 @@ from qgis.core import *
 from qgis.PyQt.QtCore import *
 from qgis.core.additions.edit import edit
 
-def buildPLSSLayer(TN,RN,SECT,PK): #,l_qq,MAPTID,qtrqtr):
+def buildPLSSLayer(TN,RN,SECT,PK##mainOkFuncStr##): #,l_qq,MAPTID,qtrqtr):
   okLayer=QgsVectorLayer("##ShpVLayerPath##","OK Sections","ogr")
 
   for field in okLayer.fields():
@@ -13,7 +13,7 @@ def buildPLSSLayer(TN,RN,SECT,PK): #,l_qq,MAPTID,qtrqtr):
   pr=scratchLayer.dataProvider()
   pr.addAttributes([QgsField("PK", QVariant.String),
                     QgsField("SECTION", QVariant.String),QgsField("TOWNSHIP", QVariant.String),
-                    QgsField("RANGE", QVariant.String)])
+                    QgsField("RANGE", QVariant.String)##mainQINQgsFieldStr##])
   scratchLayer.updateFields()
 
   f_indx=0
@@ -43,7 +43,7 @@ def buildPLSSLayer(TN,RN,SECT,PK): #,l_qq,MAPTID,qtrqtr):
     fet.setGeometry(mpoly) #(QgsGeometry.fromMultiPolygonXY([[pts]]))
     fet.setAttributes([str(f_indx),str(PK[f_indx]),
                        str(SECT[f_indx]),
-                       str(TN[f_indx]),str(RN[f_indx])])
+                       str(TN[f_indx]),str(RN[f_indx])##mainQINSetAttrStr##])
     (res,outf) =pr.addFeatures([fet])
     f_indx=f_indx+1
     

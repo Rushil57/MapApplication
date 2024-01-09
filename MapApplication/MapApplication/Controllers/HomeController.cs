@@ -86,17 +86,35 @@ namespace MapApplication.Controllers
                                 }
                             }
                         }
+                        string mainOkVariableStr = string.Empty;
+                        string mainOkAppendStr = string.Empty;
+                        string mainOkFuncStr = string.Empty;
+                        string mainQINQgsFieldStr = string.Empty;
+                        string mainQINSetAttrStr = string.Empty;
+                        if (dtOK.Columns.Count > 5)
+                        {
+                            for (int i = 6; i <= dtOK.Columns.Count; i++)
+                            {
+                                var currentColName = dtOK.Columns[i - 1].ColumnName;
+                                mainOkVariableStr += currentColName + "=[] \n";
+                                mainOkAppendStr += currentColName + ".append(r[\"" + currentColName + "\"]) \n  ";
+                                mainOkFuncStr += "," + currentColName;
+                                mainQINQgsFieldStr += $",QgsField(\"{currentColName}\", QVariant.String)";
+                                mainQINSetAttrStr += $",str({currentColName}[f_indx])";
+                            }
+                        }
+
                         string fileName = folderName + @"\MainOk.py";
 
                         string okReportPath = path + @"OKReport.xlsx";
-                        string mainOkPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainOk.py")).Replace("##ExcelPath##", okReportPath.Replace("\\", "\\\\"));
+                        string mainOkPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainOk.py")).Replace("##ExcelPath##", okReportPath.Replace("\\", "\\\\")).Replace("##mainOkVariableStr##", mainOkVariableStr).Replace("##mainOkAppendStr##", mainOkAppendStr).Replace("##mainOkFuncStr##", mainOkFuncStr);
                         using (FileStream fs = System.IO.File.Create(fileName))
                         {
                             byte[] author = new UTF8Encoding(true).GetBytes(mainOkPy);
                             fs.Write(author, 0, author.Length);
                         }
 
-                        string mainOINOkPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainQINOk.py")).Replace("##ShpVLayerPath##", folderName.Replace("\\", "\\\\") + "\\\\OK_32025_Sections.shp").Replace("##shpGPath##", path.Replace("\\", "\\\\") + "testSplits_OK.shp").Replace("##myTxtProgressFile##", string.Format(rootPath + "PythonFile\\progressCount.txt").Replace("\\", "\\\\")).Replace("##totalPer##", totalRecordCount);
+                        string mainOINOkPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainQINOk.py")).Replace("##ShpVLayerPath##", folderName.Replace("\\", "\\\\") + "\\\\OK_32025_Sections.shp").Replace("##shpGPath##", path.Replace("\\", "\\\\") + "testSplits_OK.shp").Replace("##myTxtProgressFile##", string.Format(rootPath + "PythonFile\\progressCount.txt").Replace("\\", "\\\\")).Replace("##totalPer##", totalRecordCount).Replace("##mainOkFuncStr##", mainOkFuncStr).Replace("##mainQINQgsFieldStr##", mainQINQgsFieldStr).Replace("##mainQINSetAttrStr##", mainQINSetAttrStr);
                         string qinFileName = folderName + @"\QIN.py";
                         using (FileStream fs = System.IO.File.Create(qinFileName))
                         {
@@ -123,17 +141,34 @@ namespace MapApplication.Controllers
                                 }
                             }
                         }
+                        string mainTXVariableStr = string.Empty;
+                        string mainTXAppendStr = string.Empty;
+                        string mainTXFuncStr = string.Empty;
+                        string mainQINTXQgsFieldStr = string.Empty;
+                        string mainQINTXSetAttrStr = string.Empty;
+                        if (dtOK.Columns.Count > 5)
+                        {
+                            for (int i = 6; i <= dtOK.Columns.Count; i++)
+                            {
+                                var currentColName = dtOK.Columns[i - 1].ColumnName;
+                                mainTXVariableStr += currentColName + "=[] \n";
+                                mainTXAppendStr += currentColName + ".append(r[\"" + currentColName + "\"]) \n  ";
+                                mainTXFuncStr += "," + currentColName;
+                                mainQINTXQgsFieldStr += $",QgsField(\"{currentColName}\", QVariant.String)";
+                                mainQINTXSetAttrStr += $",str({currentColName}[f_indx])";
+                            }
+                        }
                         string fileName = folderName + @"\MainTX.py";
 
                         string txReportPath = path + @"\TXReport.xlsx";
-                        string mainTxPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainOk.py")).Replace("##ExcelPath##", txReportPath.Replace("\\", "\\\\"));
+                        string mainTxPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainOk.py")).Replace("##ExcelPath##", txReportPath.Replace("\\", "\\\\")).Replace("##mainOkVariableStr##", mainTXVariableStr).Replace("##mainOkAppendStr##", mainTXAppendStr).Replace("##mainOkFuncStr##", mainTXFuncStr);
                         using (FileStream fs = System.IO.File.Create(fileName))
                         {
                             byte[] author = new UTF8Encoding(true).GetBytes(mainTxPy);
                             fs.Write(author, 0, author.Length);
                         }
 
-                        string mainOINTxPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainQINTx.py")).Replace("##ShpVLayerPath##", folderName.Replace("\\", "\\\\") + "\\\\TX_32025_SECT.shp").Replace("##shpGPath##", path.Replace("\\", "\\\\") + "testSplits_Tx.shp").Replace("##myTxtProgressFile##", string.Format(rootPath.Replace("\\", "\\\\") + "PythonFile\\progressCount.txt")).Replace("##totalPer##", totalRecordCount).Replace("##startTXCount##", startTXCount.ToString());
+                        string mainOINTxPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainQINTx.py")).Replace("##ShpVLayerPath##", folderName.Replace("\\", "\\\\") + "\\\\TX_32025_SECT.shp").Replace("##shpGPath##", path.Replace("\\", "\\\\") + "testSplits_Tx.shp").Replace("##myTxtProgressFile##", string.Format(rootPath.Replace("\\", "\\\\") + "PythonFile\\progressCount.txt")).Replace("##totalPer##", totalRecordCount).Replace("##startTXCount##", startTXCount.ToString()).Replace("##mainOkFuncStr##", mainTXFuncStr).Replace("##mainQINQgsFieldStr##", mainQINTXQgsFieldStr).Replace("##mainQINSetAttrStr##", mainQINTXSetAttrStr);
                         string qinFileName = folderName + @"\QIN.py";
                         using (FileStream fs = System.IO.File.Create(qinFileName))
                         {

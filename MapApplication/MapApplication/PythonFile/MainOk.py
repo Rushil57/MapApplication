@@ -16,7 +16,7 @@ TN=[]
 RN=[]
 SECT=[]
 PK=[]
-
+##mainOkVariableStr##
 
 failureCount = 0
 
@@ -25,9 +25,10 @@ for index,r in dfile.iterrows():
   RN.append(r["RANGE"])
   SECT.append(r["SECTION"])
   PK.append(r["CGA_UNIT"])
+  ##mainOkAppendStr##
 
 print('TotalTracts: ',str(len(TN)))
 
-QIN.buildPLSSLayer(TN,RN,SECT,PK)
+QIN.buildPLSSLayer(TN,RN,SECT,PK##mainOkFuncStr##)
 
 print("complete")

@@ -133,9 +133,15 @@ $('#btnLoad').click(function () {
                         if (feature) {
                             info.style.left = pixel[0] + 'px';
                             info.style.top = pixel[1] + 100 + 'px';
-                            if (feature !== currentFeature) {
+                            let featureLength = feature.getKeys().length;
+                            let innerInfoStr = '';
+                            if (feature !== currentFeature && featureLength > 6) {
                                 info.style.visibility = 'visible';
-                                info.innerText = "SECTION = " + feature.get('Col1') + " ,  TOWNSHIP = " + feature.get('Col2') + " , RANGE = " + feature.get('RANGE')
+                                for (var i = 4; i <= featureLength; i++) {
+                                    let currentFeature = feature.getKeys()[i - 1];
+                                    innerInfoStr += currentFeature + ' = ' + feature.get(currentFeature) + "\n";
+                                }
+                                info.innerText = innerInfoStr;
                             }
                         } else {
                             info.style.visibility = 'hidden';
