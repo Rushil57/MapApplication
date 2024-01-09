@@ -222,9 +222,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="MoveToRoot-Files\LoadData.py" />
-    <Content Include="MoveToRoot-Files\MAIN.py" />
-    <Content Include="MoveToRoot-Files\QIN.py" />
     <Content Include="PythonFile\MainOk.py" />
     <Content Include="PythonFile\MainQINOk.py" />
     <Content Include="PythonFile\MainQINTx.py" />
@@ -276,19 +273,6 @@
     <Content Include="RequiredFiles\TX_32025_Sections.shx" />
     <Content Include="RequiredFiles\__pycache__\LoadData.cpython-39.pyc" />
     <Content Include="RequiredFiles\__pycache__\QIN.cpython-39.pyc" />
-    <Content Include="12-21-2023.zip" />
-    <Content Include="MoveToRoot-Files\OK_32025_Sections.cpg" />
-    <Content Include="MoveToRoot-Files\OK_32025_Sections.dbf" />
-    <Content Include="MoveToRoot-Files\OK_32025_Sections.prj" />
-    <Content Include="MoveToRoot-Files\OK_32025_Sections.shp" />
-    <Content Include="MoveToRoot-Files\OK_32025_Sections.shx" />
-    <Content Include="MoveToRoot-Files\TX_32025_Sections.cpg" />
-    <Content Include="MoveToRoot-Files\TX_32025_Sections.dbf" />
-    <Content Include="MoveToRoot-Files\TX_32025_Sections.prj" />
-    <Content Include="MoveToRoot-Files\TX_32025_Sections.shp" />
-    <Content Include="MoveToRoot-Files\TX_32025_Sections.shx" />
-    <Content Include="MoveToRoot-Files\__pycache__\LoadData.cpython-39.pyc" />
-    <Content Include="MoveToRoot-Files\__pycache__\QIN.cpython-39.pyc" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -322,6 +306,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="ExcelFiles\" />
     <Folder Include="Models\" />
+    <Folder Include="MoveToRoot-Files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
