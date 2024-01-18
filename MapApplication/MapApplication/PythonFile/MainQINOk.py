@@ -17,7 +17,7 @@ def buildPLSSLayer(TN,RN,SECT,PK##mainOkFuncStr##): #,l_qq,MAPTID,qtrqtr):
   scratchLayer.updateFields()
 
   f_indx=0
-  recordCount = 0
+  recordCount = ##startTXCount##
   for s in SECT:
     okLayer.selectByExpression('"SECT_NUM"=\'' + str(s) + '\' and "DWM_TWN" = \'' + str(TN[f_indx]) + '\' and "DWM_RNG" = \'' + str(RN[f_indx]) + '\'')
     recordCount = recordCount + 1

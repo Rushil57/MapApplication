@@ -114,7 +114,7 @@ namespace MapApplication.Controllers
                             fs.Write(author, 0, author.Length);
                         }
 
-                        string mainOINOkPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainQINOk.py")).Replace("##ShpVLayerPath##", folderName.Replace("\\", "\\\\") + "\\\\OK_32025_Sections.shp").Replace("##shpGPath##", path.Replace("\\", "\\\\") + "testSplits_OK.shp").Replace("##myTxtProgressFile##", string.Format(rootPath + "PythonFile\\progressCount.txt").Replace("\\", "\\\\")).Replace("##totalPer##", totalRecordCount).Replace("##mainOkFuncStr##", mainOkFuncStr).Replace("##mainQINQgsFieldStr##", mainQINQgsFieldStr).Replace("##mainQINSetAttrStr##", mainQINSetAttrStr);
+                        string mainOINOkPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainQINOk.py")).Replace("##ShpVLayerPath##", folderName.Replace("\\", "\\\\") + "\\\\OK_32025_Sections.shp").Replace("##shpGPath##", path.Replace("\\", "\\\\") + "testSplits_OK.shp").Replace("##myTxtProgressFile##", string.Format(rootPath + "PythonFile\\progressCount.txt").Replace("\\", "\\\\")).Replace("##totalPer##", totalRecordCount).Replace("##mainOkFuncStr##", mainOkFuncStr).Replace("##mainQINQgsFieldStr##", mainQINQgsFieldStr).Replace("##mainQINSetAttrStr##", mainQINSetAttrStr).Replace("##startTXCount##", "0");
                         string qinFileName = folderName + @"\QIN.py";
                         using (FileStream fs = System.IO.File.Create(qinFileName))
                         {
@@ -168,7 +168,7 @@ namespace MapApplication.Controllers
                             fs.Write(author, 0, author.Length);
                         }
 
-                        string mainOINTxPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainQINTx.py")).Replace("##ShpVLayerPath##", folderName.Replace("\\", "\\\\") + "\\\\TX_32025_SECT.shp").Replace("##shpGPath##", path.Replace("\\", "\\\\") + "testSplits_Tx.shp").Replace("##myTxtProgressFile##", string.Format(rootPath.Replace("\\", "\\\\") + "PythonFile\\progressCount.txt")).Replace("##totalPer##", totalRecordCount).Replace("##startTXCount##", startTXCount.ToString()).Replace("##mainOkFuncStr##", mainTXFuncStr).Replace("##mainQINQgsFieldStr##", mainQINTXQgsFieldStr).Replace("##mainQINSetAttrStr##", mainQINTXSetAttrStr);
+                        string mainOINTxPy = System.IO.File.ReadAllText(string.Format(rootPath + "PythonFile\\MainQINOk.py")).Replace("##ShpVLayerPath##", folderName.Replace("\\", "\\\\") + "\\\\TX_32025_SECT.shp").Replace("##shpGPath##", path.Replace("\\", "\\\\") + "testSplits_Tx.shp").Replace("##myTxtProgressFile##", string.Format(rootPath.Replace("\\", "\\\\") + "PythonFile\\progressCount.txt")).Replace("##totalPer##", totalRecordCount).Replace("##startTXCount##", startTXCount.ToString()).Replace("##mainOkFuncStr##", mainTXFuncStr).Replace("##mainQINQgsFieldStr##", mainQINTXQgsFieldStr).Replace("##mainQINSetAttrStr##", mainQINTXSetAttrStr);
                         string qinFileName = folderName + @"\QIN.py";
                         using (FileStream fs = System.IO.File.Create(qinFileName))
                         {
